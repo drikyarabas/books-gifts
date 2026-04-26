@@ -1,342 +1,646 @@
+# Query: 
+# ContextLines: 1
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books & Presents</title>
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-        body{
-            background: #f8f4ef;
-            color: #2d2d2d;
-        }
-        header{
-            background: #5a3e2b;
-            padding: 18px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo{
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-            letter-spacing: 1px;
-        }
-        nav a{
-            color:#fff;
+<meta charset="UTF-8">
 
-            text-decoration:none;
-            margin-left:25px;
-            font-size:16px;
-            transition:0.3s;
-        }
-        nav a:hover{
-            color: #d8b48a;
-        }
-        .hero{
-            height: 100vh;
-            background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Books & Presents</title>
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:Arial, Helvetica, sans-serif;
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:#f8f4ef;
+
+color:#2d2d2d;
+
+}
+
+header{
+
+background:#5a3e2b;
+
+padding:18px 60px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+}
+
+.logo{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#fff;
+
+letter-spacing:1px;
+
+}
+
+nav a{
+
+color:#fff;
+
+text-decoration:none;
+
+margin-left:25px;
+
+font-size:16px;
+
+transition:0.3s;
+
+}
+
+nav a:hover{
+
+color:#d8b48a;
+
+}
+
+.hero{
+
+height:100vh;
+
+background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+
 url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1400&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            color:white;
-        }
-        .hero h1{
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        .hero p{
-            font-size: 22px;
-            margin-bottom: 30px;
-        }
-        .btn{
-            display: inline-block;
-            padding: 14px 34px;
-            background: #c68b59;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn:hover{
-            background: #a96d3c;
-        }
-        section{
-            padding: 80px 60px;
 
-        }
-        .title{
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #5a3e2b;
-        }
-        .subtitle{
-            text-align: center;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.8;
-            margin-bottom: 50px;
-        }
-        .about{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .about img{
-            width: 100%;
-            border-radius: 10px;
+background-size:cover;
 
-        }
-        .about-text h2{
-            font-size: 38px;
-            margin-bottom: 20px;
-            color: #5a3e2b;
-        }
-        .about-text p{
-            line-height: 1.8;
-            font-size: 18px;
-        }
-        .grid{
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-            gap: 25px;
-        }
-        .card{
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(red, green, blue, alpha);
-        }
-        .card img{
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .card h3{
-            margin-bottom: 10px;
-            color: #5a3e2b;
-        }
-        .features{
-            background: #fff7ef;
-        }
-        .feature-box{
-            padding: 25px;
-            background: white;
-            border-left: 5px solid #c68b59;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(red, green, blue, alpha);
-        }
-        .gallery img{
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .cta{
-            background: #5a3e2b;
-            color: white;
-            text-align: center;
-            padding: 90px 20px;
-        }
-        .cta h2{
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
-        footer{
-            background: #2b1c12;
-            color: #eee;
-            padding: 50px 60px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-            gap: 30px;
-        }
-        footer h3{
-            margin-bottom: 15px;
-            color: #d8b48a;
-        }
-        footer p, a{
-            line-height: 1.8;
-            color: #eee;
-            text-decoration: none;
-        }
-        .copy{
-            background: #1b120c;
-            color: #aaa;
-            text-align: center;
-            padding: 18px;
-        }
-        @media(max-width:900px){
-            .about{
-                grid-template-columns: 1fr;
-            }
-        }
-        .hero h1{
-            font-size: 42px;
-        }
-        header{
-            padding: 18px 25px;
-            flex-direction: column;
-            gap: 15px;
-        }
-        nav a{
-            margin: 0 10px;
-        }
-        section{
-            padding: 70px 25px;
-        }
-        }
-    </style>
+background-position:center;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+color:white;
+
+}
+
+.hero h1{
+
+font-size:60px;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:22px;
+
+margin-bottom:30px;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:14px 34px;
+
+background:#c68b59;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:6px;
+
+font-weight:bold;
+
+transition:0.3s;
+
+}
+
+.btn:hover{
+
+background:#a96d3c;
+
+}
+
+section{
+
+padding:80px 60px;
+
+}
+
+.title{
+
+text-align:center;
+
+font-size:40px;
+
+margin-bottom:20px;
+
+color:#5a3e2b;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.8;
+
+margin-bottom:50px;
+
+}
+
+.about{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+align-items:center;
+
+}
+
+.about img{
+
+width:100%;
+
+border-radius:10px;
+
+}
+
+.about-text h2{
+
+font-size:38px;
+
+margin-bottom:20px;
+
+color:#5a3e2b;
+
+}
+
+.about-text p{
+
+line-height:1.8;
+
+font-size:18px;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:10px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+text-align:center;
+
+}
+
+.card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:8px;
+
+margin-bottom:15px;
+
+}
+
+.card h3{
+
+margin-bottom:10px;
+
+color:#5a3e2b;
+
+}
+
+.features{
+
+background:#fff7ef;
+
+}
+
+.feature-box{
+
+padding:25px;
+
+background:white;
+
+border-left:5px solid #c68b59;
+
+border-radius:8px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+.gallery img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+border-radius:10px;
+
+}
+
+.cta{
+
+background:#5a3e2b;
+
+color:white;
+
+text-align:center;
+
+padding:90px 20px;
+
+}
+
+.cta h2{
+
+font-size:45px;
+
+margin-bottom:20px;
+
+}
+
+footer{
+
+background:#2b1c12;
+
+color:#eee;
+
+padding:50px 60px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+footer h3{
+
+margin-bottom:15px;
+
+color:#d8b48a;
+
+}
+
+footer p,a{
+
+line-height:1.8;
+
+color:#eee;
+
+text-decoration:none;
+
+}
+
+.copy{
+
+background:#1b120c;
+
+color:#aaa;
+
+text-align:center;
+
+padding:18px;
+
+}
+
+@media(max-width:900px){
+
+.about{
+
+grid-template-columns:1fr;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+header{
+
+padding:18px 25px;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+nav a{
+
+margin:0 10px;
+
+}
+
+section{
+
+padding:70px 25px;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-    
-    <header>
-        <div class="logo"> Books & Presents</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Products</a>
-            <a href="#">Gallery</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
-    <section class="hero">
-        <div>
-            <h1>Where Books Meet Beautiful Gifts.</h1>
-            <p>Elegant collections for readers, celebrations and unforgettable moments.</p>
-            <a href="#" class="btn">Shop Now</a>
-        </div>
 
-    </section>
+<header>
 
-    <section id="about">
-        <div class="about">
-            <div class="about-text">
-                <h2>About Us</h2>
-                <p>Books & presents is a modern destination for book lovers and thoughtful gifting.
-                    We combine premium books, beautiful wrapping and stylish presents in one warm space.
-                    Whether you are buying for yourself or someone special, we make every purchase meaningful.
-                </p>
-            </div>
-            <div>
-                <img src="WhatsApp Image 2026-04-25 at 06.41.52 (1).jpeg">
-            </div>
-        </div>
+<div class="logo">Books & Presents</div>
 
-    </section>
+<nav>
 
-    <section id="Products">
-        <h2 class="title">Our products</h2>
-        <p class="subtitle">Curated collections designed for reading, gifting and celebrating.</p>
+<a href="#">Home</a>
 
-        <div class="grid">
-            <div class="card">
-                <img src="WhatsApp Image 2026-04-25 at 07.56.27.jpeg">
-                <h3> Books Collection</h3>
-                <p>Novels, Education,Motivation and Medical Books.</p>
-            </div>
-            <div class="card">
-                <img src="WhatsApp Image 2026-04-25 at 08.05.49.jpeg" alt="">
-                <h3>Gift Boxes</h3>
-                <p>Luxury ready-made gifts for special events.</p>
-            </div>
+<a href="#about">About</a>
 
-            <div class="card">
-                <img src="WhatsApp Image 2026-04-25 at 08.13.43.jpeg" alt="">
-                <h3>Stationary</h3>
-                <p>Notebooks,journals,pens and all study assentials.</p>
-            </div>
-            <div class="card">
-                <img src="WhatsApp Image 2026-04-25 at 08.20.40.jpeg" alt="">
-                <h3>Custom Wrapping</h3>
-                <p>Elegant wrapping to make every gift memorable.</p>
-            </div>
-        </div>
-    </section>
+<a href="#products">Products</a>
 
-    <section class="features">
-        <h2 class="title">Why Choose Us</h2>
-        <div class="grid">
-            <div class="features-box">
-                <h3>Quality selection</h3>
-                <p>Carefully chosen books and premium gift items.</p>
-            </div>
+<a href="#gallery">Gallery</a>
 
-            <div class="features-box">
-                <h3>Elegant presentations</h3>
-                <p>Beautiful wrapping with a classy finish.</p>
-            </div>
+<a href="#contact">Contact</a>
 
-            <div class="features-box">
-                <h3>Friendly services</h3>
-                <p>Warm customer support and smooth shopping experience.</p>
-            </div>
+</nav>
 
-            <div class="features-ox">
-                <h3>Fast Orders</h3>
-                <p>Quick WhatsApp ordering and reliable delivery.</p>
-            </div>
-        </div>
-    </section>
+</header>
 
-    <section id="gallery">
-        <h2 class="title">Gallery</h2>
-        <div class="grid gallery">
-            <img src="WhatsApp Image 2026-04-25 at 08.45.00 (1).jpeg" alt="">
-            <img src="WhatsApp Image 2026-04-25 at 08.45.00 (2).jpeg" alt="">
-            <img src="WhatsApp Image 2026-04-25 at 08.45.00.jpeg" alt="">
-            <img src="WhatsApp Image 2026-04-25 at 08.45.01.jpeg" alt="">
-        </div>
-    </section>
+<section class="hero">
 
-    <section class="cta">
-        <h2>Ready to surprise someone?</h2>
-        <p style="margin-bottom: 25px;"> Books & Gifts today with style.</p>
-        <a href="#" class="btn">Order on WhatsApp.</a>
-    </section>
+<div>
 
-    <footer id="contact">
-        <div>
-            <h3>Books And Presnts</h3>
-            <p>Your Elegent Bookstore and gift destination.</p>
-        </div>
+<h1>Where Books Meet Beautiful Gifts</h1>
 
-        <div>
-            <h3>Contact</h3>
-            <p>Kampala, Uganda</p>
-            <p>+256706102665</p>
-            <p>zoyaappaz@gmail.com</p>
-        </div>
+<p>Elegant collections for readers, celebrations and unforgettable moments.</p>
 
-        <div>
-            <h3>Hours</h3>
-            <p>Mon-Sat: 8AM-8PM</p>
-            <P>Sunday: 10AM-4PM</P>
-        </div>
-    </footer>
+<a href="#" class="btn">Shop Now</a>
 
-    <div class="copy">
-        2026 Books & Presents.|All Rights Reserved.
-    </div>
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="about">
+
+<div class="about-text">
+
+<h2>About Us</h2>
+
+<p>
+
+Books & Presents is a modern destination for book lovers and thoughtful gifting. 
+
+We combine premium books, beautiful wrapping and stylish presents in one warm space.
+
+Whether you're buying for yourself or someone special, we make every purchase meaningful.
+
+</p>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1526243741027-444d633d7365?auto=format&fit=crop&w=1200&q=80">
+
+</div>
+
+</div>
+
+</section>
+
+<section id="products">
+
+<h2 class="title">Our Products</h2>
+
+<p class="subtitle">Curated collections designed for reading, giving and celebrating.</p>
+
+<div class="grid">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1000&q=80">
+
+<h3>Books Collection</h3>
+
+<p>Novels, education, motivation and children books.</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0ff?auto=format&fit=crop&w=1000&q=80">
+
+<h3>Gift Boxes</h3>
+
+<p>Luxury ready-made gifts for birthdays and special days.</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=1000&q=80">
+
+<h3>Stationery</h3>
+
+<p>Notebooks, journals, pens and study essentials.</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1000&q=80">
+
+<h3>Custom Wrapping</h3>
+
+<p>Elegant wrapping to make every gift memorable.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<h2 class="title">Why Choose Us</h2>
+
+<div class="grid">
+
+<div class="feature-box">
+
+<h3>Quality Selection</h3>
+
+<p>Carefully chosen books and premium gift items.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>Elegant Presentation</h3>
+
+<p>Beautiful wrapping with a classy finish.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>Friendly Service</h3>
+
+<p>Warm customer support and smooth shopping experience.</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>Fast Orders</h3>
+
+<p>Quick WhatsApp ordering and reliable delivery.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2 class="title">Gallery</h2>
+
+<div class="grid gallery">
+
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1000&q=80">
+
+<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1000&q=80">
+
+<img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1000&q=80">
+
+<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1000&q=80">
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Ready To Surprise Someone?</h2>
+
+<p style="margin-bottom:25px;">Order books and gifts today with style.</p>
+
+<a href="#" class="btn">Order on WhatsApp</a>
+
+</section>
+
+<footer id="contact">
+
+<div>
+
+<h3>Books & Presents</h3>
+
+<p>Your elegant bookstore and gift destination.</p>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>Kampala, Uganda</p>
+
+<p>+256 XXX XXX XXX</p>
+
+<p>bookspresents@email.com</p>
+
+</div>
+
+<div>
+
+<h3>Hours</h3>
+
+<p>Mon - Sat: 8AM - 8PM</p>
+
+<p>Sunday: 10AM - 6PM</p>
+
+</div>
+
+</footer>
+
+<div class="copy">
+
+© 2026 Books & Presents. All Rights Reserved.
+
+</div>
+
 </body>
+
 </html>
